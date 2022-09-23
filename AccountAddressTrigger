@@ -1,0 +1,11 @@
+trigger AccountAddressTrigger on Account (before insert, before update) {
+/*Create an Apex trigger:
+Assumes there is a checkbox called Match_Billing_Address__c
+Condition: Match Billing Address is true
+Operation: set the Shipping Postal Code to match the Billing Postal Code*/
+    for(account a: Trigger.new){
+        if(a.Match_Billing_Address__c == true){
+            a.ShippingPostalCode = a.BillingPostalCode;
+        }
+    }
+}
