@@ -1,0 +1,7 @@
+public class ContactSearch {
+    public static list<Contact> searchForContacts(string ln, string postalCode){
+    	list<Contact> contacts = [Select Id, Name FROM Contact 
+                                      WHERE LastName = :ln AND  MailingPostalCode = :postalCode];
+        return contacts;
+    }
+}
