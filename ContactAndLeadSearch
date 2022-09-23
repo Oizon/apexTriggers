@@ -1,0 +1,8 @@
+public class ContactAndLeadSearch {
+    public static list<list<sObject>> searchContactsAndLeads(string name){
+        list<list<sObject>> ConALeads = [FIND :name
+                                        IN Name FIELDS
+                                         RETURNING Lead, Contact];
+        return ConALeads;
+    }
+}
